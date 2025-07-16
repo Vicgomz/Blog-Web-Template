@@ -1,0 +1,281 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a252f;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0d1b2a;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-icon {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff6200;
+}
+
+.beta-btn {
+    background-color: #00aaff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.beta-btn:hover {
+    background-color: #0090d0;
+}
+
+/* Contenido principal */
+main {
+    margin-top: 70px; /* Espacio para el header fijo */
+    padding: 20px;
+    flex: 1 0 auto; /* Permite que el main ocupe el espacio disponible */
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #1a73e8;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6200;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #e55a00;
+}
+
+/* Main content layout */
+.main-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Sección de noticias */
+.news {
+    flex: 3; /* Ocupa más espacio que la sidebar */
+}
+
+.news h2 {
+    color: #ff6200;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.news article {
+    margin-bottom: 20px; /* Separación entre artículos */
+}
+
+.blog-content {
+    background-color: #0d1b2a;
+    padding: 15px;
+    display: flex;
+    align-items: flex-start;
+    height: 150px; /* Aumentado a 150px para acomodar más contenido */
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.blog-content img {
+    max-width: 300px;
+    height: 130px; /* Tamaño fijo para el hueco de la imagen */
+    margin-right: 20px;
+    border-radius: 5px;
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio */
+    background-color: transparent; /* Sin color detrás de la imagen */
+}
+
+.text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.text-content h2 {
+    color: #fff;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer; /* Indica que es clickable */
+}
+
+.text-content h2:hover {
+    color: #ff6200; /* Cambio de color al pasar el ratón */
+}
+
+.description {
+    color: #ddd;
+    font-size: 12px;
+    margin: 20px 0; /* Aumentado a 20px para una línea en blanco visible */
+    flex-grow: 1;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Espacio debajo de la descripción */
+}
+
+.date, .author {
+    color: #aaa;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1; /* Menos espacio que la sección de noticias */
+    background-color: #0d1b2a;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.sidebar h3 {
+    color: #ff6200;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Página multimedia */
+.multimedia {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery img, .gallery video {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Página blog */
+.blog {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blog h1 {
+    text-align: center;
+    color: #ff6200;
+    margin-bottom: 20px;
+}
+
+.blog article {
+    margin-bottom: 20px; /* Separación entre artículos */
+}
+
+/* Página post */
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #0d1b2a;
+    border-radius: 5px;
+}
+
+.post h1 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.post p {
+    color: #ddd;
+    font-size: 16px;
+    margin: 20px 0; /* Aumentado a 20px para una línea en blanco visible */
+}
+
+/* Footer */
+footer {
+    background-color: #0d1b2a;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    flex-shrink: 0; /* Evita que el footer se comprima */
+}
