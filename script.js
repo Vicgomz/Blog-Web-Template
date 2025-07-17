@@ -27,22 +27,36 @@ if (window.location.pathname.includes('post.html')) {
 // Funciones para multimedia
 let currentIndex = 0;
 let currentType = '';
+let prevArrow, nextArrow; // Declarar variables globales para las flechas
 
 const overlay = document.createElement('div');
 overlay.className = 'overlay';
 const overlayContent = document.createElement('div');
 overlayContent.className = 'overlay-content';
-const prevArrow = document.createElement('button');
-prevArrow.id = 'prev-arrow';
-prevArrow.className = 'arrow';
-prevArrow.innerHTML = '<';
-const nextArrow = document.createElement('button');
-nextArrow.id = 'next-arrow';
-nextArrow.className = 'arrow';
-nextArrow.innerHTML = '>';
+const overlayMediaContainer = document.createElement('div');
+overlayMediaContainer.className = 'overlay-media-container';
+const overlayCounter = document.createElement('div');
+overlayCounter.className = 'overlay-counter';
+
+if (window.innerWidth > 768) {
+    // Crear y añadir flechas solo en pantallas grandes
+    const arrowContainer = document.createElement('div');
+    arrowContainer.className = 'arrow-container';
+    prevArrow = document.createElement('button');
+    prevArrow.id = 'prev-arrow';
+    prevArrow.className = 'arrow';
+    prevArrow.innerHTML = '<';
+    nextArrow = document.createElement('button');
+    nextArrow.id = 'next-arrow';
+    nextArrow.className = 'arrow';
+    nextArrow.innerHTML = '>';
+    overlayContent.appendChild(prevArrow);
+    overlayContent.appendChild(nextArrow);
+}
+
+overlayContent.appendChild(overlayMediaContainer);
+overlayContent.appendChild(overlayCounter);
 overlay.appendChild(overlayContent);
-overlay.appendChild(prevArrow);
-overlay.appendChild(nextArrow);
 document.body.appendChild(overlay);
 
 document.querySelectorAll('.gallery img, .gallery video').forEach(item => {
@@ -55,12 +69,12 @@ document.querySelectorAll('.gallery img, .gallery video').forEach(item => {
 
 function showMedia(item) {
     overlay.classList.add('active');
-    overlayContent.innerHTML = '';
+    overlayMediaContainer.innerHTML = '';
     if (item.tagName === 'IMG') {
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = item.alt;
-        overlayContent.appendChild(img);
+        overlayMediaContainer.appendChild(img);
     } else {
         const video = document.createElement('video');
         video.controls = true;
@@ -68,26 +82,37 @@ function showMedia(item) {
         source.src = item.querySelector('source').src;
         source.type = 'video/mp4';
         video.appendChild(source);
-        overlayContent.appendChild(video);
+        overlayMediaContainer.appendChild(video);
     }
+    const gallery = item.closest('.gallery');
+    const totalItems = gallery.children.length;
+    overlayCounter.textContent = `${currentIndex + 1}/${totalItems}`;
     updateArrows();
 }
 
-prevArrow.addEventListener('click', () => changeMedia(-1));
-nextArrow.addEventListener('click', () => changeMedia(1));
+function updateArrows() {
+    if (window.innerWidth > 768 && prevArrow && nextArrow) {
+        const gallery = document.querySelector(`.gallery.${currentType}`);
+        const items = Array.from(gallery.children);
+        const isFirst = currentIndex === 0;
+        const isLast = currentIndex === items.length - 1;
+
+        prevArrow.classList.toggle('hidden', isFirst);
+        nextArrow.classList.toggle('hidden', isLast);
+    }
+}
+
+// Asignar eventos solo si las flechas existen
+if (prevArrow && nextArrow) {
+    prevArrow.addEventListener('click', () => changeMedia(-1));
+    nextArrow.addEventListener('click', () => changeMedia(1));
+}
 
 function changeMedia(direction) {
     const gallery = document.querySelector(`.gallery.${currentType}`);
     const items = Array.from(gallery.children);
     currentIndex = (currentIndex + direction + items.length) % items.length;
     showMedia(items[currentIndex]);
-}
-
-function updateArrows() {
-    const gallery = document.querySelector(`.gallery.${currentType}`);
-    const items = Array.from(gallery.children);
-    prevArrow.style.display = currentIndex > 0 ? 'block' : 'none';
-    nextArrow.style.display = currentIndex < items.length - 1 ? 'block' : 'none';
 }
 
 overlay.addEventListener('click', (e) => {
@@ -135,6 +160,13 @@ function updatePagination(type) {
 document.querySelectorAll('.gallery').forEach(gallery => {
     updateGallery(gallery.dataset.type);
     updatePagination(gallery.dataset.type);
+});
+
+// Toggle menú hamburguesa
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
 });
 
 // Mensaje de consola

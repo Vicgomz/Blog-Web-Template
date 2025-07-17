@@ -10,7 +10,8 @@
     <header>
         <nav class="nav-container">
             <a href="index.html" class="home-icon">🏠</a>
-            <ul>
+            <div class="menu-toggle">☰</div> <!-- Añadido botón hamburguesa -->
+            <ul class="nav-menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="multimedia.html">Media</a></li>
@@ -25,7 +26,7 @@
         <section class="multimedia">
             <h1>Contenido Multimedia</h1>
 
-            <!-- Screenshots (4x3 = 12 imágenes) -->
+            <!-- Screenshots -->
             <div class="media-section">
                 <h2>Screenshots</h2>
                 <div class="gallery screenshots" data-type="screenshots">
@@ -47,7 +48,7 @@
                 <button class="nav-btn next-btn" onclick="changePage('screenshots', 1)">></button>
             </div>
 
-            <!-- Wallpapers (3x2 = 6 imágenes) -->
+            <!-- Wallpapers -->
             <div class="media-section">
                 <h2>Wallpapers</h2>
                 <div class="gallery wallpapers" data-type="wallpapers">
@@ -63,7 +64,7 @@
                 <button class="nav-btn next-btn" onclick="changePage('wallpapers', 1)">></button>
             </div>
 
-            <!-- Concept Arts (3x2 = 6 imágenes) -->
+            <!-- Concept Arts -->
             <div class="media-section">
                 <h2>Concept Arts</h2>
                 <div class="gallery concept-arts" data-type="concept-arts">
@@ -79,7 +80,7 @@
                 <button class="nav-btn next-btn" onclick="changePage('concept-arts', 1)">></button>
             </div>
 
-            <!-- Videos (3x2 = 6 imágenes) -->
+            <!-- Videos -->
             <div class="media-section">
                 <h2>Videos</h2>
                 <div class="gallery videos" data-type="videos">

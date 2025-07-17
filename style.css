@@ -21,7 +21,7 @@ header {
 
 .nav-container {
     display: flex;
-    justify-content: center; /* Centrar opciones */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     max-width: 1200px;
@@ -32,21 +32,26 @@ header {
     color: #fff;
     font-size: 24px;
     text-decoration: none;
-    margin-right: 20px; /* Espacio entre icono y menú */
 }
 
-nav ul {
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-menu {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
+.nav-menu li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.nav-menu li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -54,7 +59,7 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+.nav-menu li a:hover {
     color: #ff6200;
 }
 
@@ -103,14 +108,14 @@ main {
 /* Main content layout */
 .main-content {
     display: flex;
-    max-width: 1000px; /* Reducido para encoger las páginas */
+    max-width: 1000px;
     margin: 0 auto;
     gap: 20px;
 }
 
 /* Sección de noticias */
 .news {
-    flex: 3; /* Ocupa más espacio que la sidebar */
+    flex: 3;
 }
 
 .news h2 {
@@ -120,7 +125,7 @@ main {
 }
 
 .news article {
-    margin-bottom: 20px; /* Separación entre artículos */
+    margin-bottom: 20px;
 }
 
 .blog-content {
@@ -129,16 +134,16 @@ main {
     display: flex;
     align-items: flex-start;
     height: 130px;
-    overflow: hidden; /* Evita que el contenido se desborde */
+    overflow: hidden;
 }
 
 .blog-content img {
     max-width: 300px;
-    height: 130px; /* Tamaño fijo para el hueco de la imagen */
+    height: 130px;
     margin-right: 20px;
     border-radius: 5px;
-    object-fit: cover; /* Ajusta la imagen para llenar el espacio */
-    background-color: transparent; /* Sin color detrás de la imagen */
+    object-fit: cover;
+    background-color: transparent;
 }
 
 .text-content {
@@ -151,27 +156,27 @@ main {
 
 .text-content h2 {
     color: #fff;
-    margin: 0 0 5px 0; /* Reducido para pegar la descripción al título */
+    margin: 0 0 5px 0;
     font-size: 24px;
     font-weight: bold;
-    cursor: pointer; /* Indica que es clickable */
+    cursor: pointer;
 }
 
 .text-content h2:hover {
-    color: #ff6200; /* Cambio de color al pasar el ratón */
+    color: #ff6200;
 }
 
 .description {
     color: #ddd;
     font-size: 12px;
-    margin: 0 0 10px 0; /* Pegado al título, solo margen abajo */
+    margin: 0 0 10px 0;
     flex-grow: 1;
 }
 
 .meta {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px; /* Espacio debajo de la descripción */
+    margin-top: 10px;
 }
 
 .date, .author {
@@ -182,7 +187,7 @@ main {
 
 /* Sidebar */
 .sidebar {
-    flex: 1; /* Menos espacio que la sección de noticias */
+    flex: 1;
     background-color: #0d1b2a;
     padding: 15px;
     border-radius: 5px;
@@ -213,15 +218,15 @@ main {
 
 /* Página multimedia */
 .multimedia {
-    padding: 20px 50px; /* Aumentado el margen lateral a 50px */
+    padding: 20px 50px;
     text-align: center;
-    max-width: 1000px; /* Reducido para encoger las páginas */
-    margin: 0 auto; /* Centrado */
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .media-section {
     margin-bottom: 40px;
-    position: relative; /* Para posicionar las flechas */
+    position: relative;
 }
 
 .media-section h2 {
@@ -237,12 +242,12 @@ main {
 
 .screenshots {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr); /* 4x3 */
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .wallpapers, .concept-arts, .videos {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr); /* 3x2 */
+    grid-template-rows: repeat(2, 1fr);
 }
 
 .gallery img, .gallery video {
@@ -251,12 +256,12 @@ main {
     object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s, filter 0.3s; /* Efecto de hover */
+    transition: transform 0.3s, filter 0.3s;
 }
 
 .gallery img:hover, .gallery video:hover {
-    transform: scale(1.05); /* Ampliación ligera al pasar el mouse */
-    filter: brightness(1.2); /* Aumento de brillo */
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
 
 .nav-btn {
@@ -270,19 +275,19 @@ main {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    transition: background-color 0.3s; /* Efecto de hover */
+    transition: background-color 0.3s;
 }
 
 .prev-btn {
-    left: -50px; /* Separación amplia a la izquierda */
+    left: -50px;
 }
 
 .next-btn {
-    right: -50px; /* Separación amplia a la derecha */
+    right: -50px;
 }
 
 .nav-btn:hover {
-    background-color: rgba(0, 144, 208, 0.8); /* Cambio de color al pasar el mouse */
+    background-color: rgba(0, 144, 208, 0.8);
 }
 
 /* Paginación */
@@ -325,8 +330,21 @@ main {
 }
 
 .overlay-content {
-    max-width: 40%;
-    max-height: 40%;
+    max-width: 60%;
+    max-height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-media-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .overlay-content img, .overlay-content video {
@@ -336,10 +354,15 @@ main {
     border-radius: 5px;
 }
 
+.overlay-counter {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+}
+
 .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     border: none;
@@ -347,19 +370,47 @@ main {
     padding: 10px;
     cursor: pointer;
     z-index: 1001;
+    width: 40px;
+    text-align: center;
+    display: block;
 }
 
-#prev-arrow {
-    left: 10px;
+/* Estilos para pantallas grandes (> 768px) */
+@media (min-width: 769px) {
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #prev-arrow {
+        left: -50px;
+    }
+
+    #next-arrow {
+        right: -50px;
+    }
 }
 
-#next-arrow {
-    right: 10px;
+/* Eliminar flechas en pantallas pequeñas (<= 768px) */
+@media (max-width: 768px) {
+    .arrow {
+        display: none;
+    }
+}
+
+.arrow.hidden {
+    display: none;
+}
+
+/* Contenedor para flechas (ya no necesario en pantallas pequeñas) */
+.arrow-container {
+    display: none;
 }
 
 /* Página blog */
 .blog {
-    max-width: 1000px; /* Reducido para encoger las páginas */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -370,7 +421,7 @@ main {
 }
 
 .blog article {
-    margin-bottom: 20px; /* Separación entre artículos */
+    margin-bottom: 20px;
 }
 
 /* Página post */
@@ -407,4 +458,123 @@ footer {
     padding: 10px 0;
     width: 100%;
     flex-shrink: 0;
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #0d1b2a;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .main-content {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .sidebar {
+        order: -1;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .screenshots {
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .wallpapers, .concept-arts, .videos {
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .nav-btn {
+        position: static;
+        display: inline-block;
+        margin: 10px 5px;
+        transform: none;
+    }
+
+    .media-section .nav-btn {
+        margin-top: 10px;
+    }
+
+    .multimedia {
+        padding: 20px 20px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .blog-content {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .blog-content img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .text-content {
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+    }
+
+    .text-content h2 {
+        margin-top: 0;
+    }
+
+    .meta {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .overlay-content {
+        max-width: 90%;
+        max-height: 90%;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu {
+        top: 50px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .blog-content img {
+        max-width: 100%;
+    }
 }
