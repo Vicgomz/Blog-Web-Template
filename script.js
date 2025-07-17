@@ -27,12 +27,6 @@ if (window.location.pathname.includes('post.html')) {
 // Funciones para multimedia
 let currentIndex = 0;
 let currentType = '';
-let zoomLevel = 1;
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-let translateX = 0;
-let translateY = 0;
 
 const overlay = document.createElement('div');
 overlay.className = 'overlay';
@@ -55,21 +49,17 @@ document.querySelectorAll('.gallery img, .gallery video').forEach(item => {
     item.addEventListener('click', () => {
         currentType = item.closest('.gallery').dataset.type;
         currentIndex = Array.from(item.parentElement.children).indexOf(item);
-        zoomLevel = 1; // Reset zoom
-        translateX = 0; // Reset posición
-        translateY = 0;
         showMedia(item);
     });
 });
 
 function showMedia(item) {
     overlay.classList.add('active');
+    overlayContent.innerHTML = '';
     if (item.tagName === 'IMG') {
         const img = document.createElement('img');
         img.src = item.src;
         img.alt = item.alt;
-        img.style.transform = `scale(${zoomLevel}) translate(${translateX}px, ${translateY}px)`;
-        overlayContent.innerHTML = '';
         overlayContent.appendChild(img);
     } else {
         const video = document.createElement('video');
@@ -78,8 +68,6 @@ function showMedia(item) {
         source.src = item.querySelector('source').src;
         source.type = 'video/mp4';
         video.appendChild(source);
-        video.style.transform = `scale(${zoomLevel}) translate(${translateX}px, ${translateY}px)`;
-        overlayContent.innerHTML = '';
         overlayContent.appendChild(video);
     }
     updateArrows();
@@ -88,65 +76,18 @@ function showMedia(item) {
 prevArrow.addEventListener('click', () => changeMedia(-1));
 nextArrow.addEventListener('click', () => changeMedia(1));
 
-overlayContent.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const oldZoom = zoomLevel;
-    zoomLevel = Math.max(1, Math.min(5, zoomLevel + (e.deltaY > 0 ? -0.1 : 0.1))); // Límite de 1x a 5x
-    const media = overlayContent.querySelector('img, video');
-    if (media) {
-        const rect = overlayContent.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        const scaleFactor = zoomLevel / oldZoom;
-        translateX = (translateX + mouseX) * scaleFactor - mouseX;
-        translateY = (translateY + mouseY) * scaleFactor - mouseY;
-        media.style.transform = `scale(${zoomLevel}) translate(${translateX}px, ${translateY}px)`;
-    }
-});
-
-overlayContent.addEventListener('mousedown', (e) => {
-    if (e.button === 2) { // Click derecho
-        isDragging = true;
-        startX = e.clientX - translateX;
-        startY = e.clientY - translateY;
-        overlayContent.style.cursor = 'grabbing';
-    }
-});
-
-overlayContent.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        const media = overlayContent.querySelector('img, video');
-        translateX = e.clientX - startX;
-        translateY = e.clientY - startY;
-        if (media) media.style.transform = `scale(${zoomLevel}) translate(${translateX}px, ${translateY}px)`;
-    }
-});
-
-overlayContent.addEventListener('mouseup', () => {
-    isDragging = false;
-    overlayContent.style.cursor = 'move';
-});
-
-overlayContent.addEventListener('mouseleave', () => {
-    isDragging = false;
-    overlayContent.style.cursor = 'move';
-});
-
 function changeMedia(direction) {
     const gallery = document.querySelector(`.gallery.${currentType}`);
-    const items = Array.from(gallery.children).filter(item => item.style.display !== 'none');
+    const items = Array.from(gallery.children);
     currentIndex = (currentIndex + direction + items.length) % items.length;
-    zoomLevel = 1; // Reset zoom al cambiar
-    translateX = 0; // Reset posición
-    translateY = 0;
     showMedia(items[currentIndex]);
 }
 
 function updateArrows() {
     const gallery = document.querySelector(`.gallery.${currentType}`);
-    const items = Array.from(gallery.children).filter(item => item.style.display !== 'none');
-    prevArrow.style.display = items.length > 1 ? 'block' : 'none';
-    nextArrow.style.display = items.length > 1 ? 'block' : 'none';
+    const items = Array.from(gallery.children);
+    prevArrow.style.display = currentIndex > 0 ? 'block' : 'none';
+    nextArrow.style.display = currentIndex < items.length - 1 ? 'block' : 'none';
 }
 
 overlay.addEventListener('click', (e) => {
@@ -156,7 +97,7 @@ overlay.addEventListener('click', (e) => {
 });
 
 let page = { screenshots: 0, wallpapers: 0, 'concept-arts': 0, videos: 0 };
-const itemsPerPage = { screenshots: 12, wallpapers: 9, 'concept-arts': 9, videos: 9 };
+const itemsPerPage = { screenshots: 12, wallpapers: 6, 'concept-arts': 6, videos: 6 };
 
 function changePage(type, direction) {
     const gallery = document.querySelector(`.gallery.${type}`);

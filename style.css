@@ -103,7 +103,7 @@ main {
 /* Main content layout */
 .main-content {
     display: flex;
-    max-width: 1200px;
+    max-width: 1000px; /* Reducido para encoger las páginas */
     margin: 0 auto;
     gap: 20px;
 }
@@ -213,13 +213,15 @@ main {
 
 /* Página multimedia */
 .multimedia {
-    padding: 20px 70px; /* Aumentado el margen a ambos lados */
+    padding: 20px 50px; /* Aumentado el margen lateral a 50px */
     text-align: center;
+    max-width: 1000px; /* Reducido para encoger las páginas */
+    margin: 0 auto; /* Centrado */
 }
 
 .media-section {
     margin-bottom: 40px;
-    position: relative;
+    position: relative; /* Para posicionar las flechas */
 }
 
 .media-section h2 {
@@ -231,27 +233,16 @@ main {
     display: grid;
     gap: 10px;
     margin: 0 auto;
-    max-width: 1050px; /* Reducido para más margen */
 }
 
 .screenshots {
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-    grid-template-rows: repeat(3, 1fr); /* 3 filas */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr); /* 4x3 */
 }
 
-.wallpapers {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    grid-template-rows: repeat(3, 1fr); /* 3 filas */
-}
-
-.concept-arts {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    grid-template-rows: repeat(3, 1fr); /* 3 filas */
-}
-
-.videos {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    grid-template-rows: repeat(3, 1fr); /* 3 filas */
+.wallpapers, .concept-arts, .videos {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr); /* 3x2 */
 }
 
 .gallery img, .gallery video {
@@ -260,13 +251,12 @@ main {
     object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.3s, filter 0.3s; /* Efecto de hover */
 }
 
 .gallery img:hover, .gallery video:hover {
-    transform: scale(1.05); /* Pequeña ampliación al pasar el cursor */
+    transform: scale(1.05); /* Ampliación ligera al pasar el mouse */
+    filter: brightness(1.2); /* Aumento de brillo */
 }
 
 .nav-btn {
@@ -274,24 +264,25 @@ main {
     color: #fff;
     border: none;
     font-size: 20px;
-    padding: 8px;
+    padding: 10px 15px;
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    transition: background-color 0.3s; /* Efecto de hover */
 }
 
 .prev-btn {
-    left: 0; /* Más al borde izquierdo */
+    left: -50px; /* Separación amplia a la izquierda */
 }
 
 .next-btn {
-    right: 0; /* Más al borde derecho */
+    right: -50px; /* Separación amplia a la derecha */
 }
 
 .nav-btn:hover {
-    background-color: rgba(0, 144, 208, 0.8);
+    background-color: rgba(0, 144, 208, 0.8); /* Cambio de color al pasar el mouse */
 }
 
 /* Paginación */
@@ -334,10 +325,8 @@ main {
 }
 
 .overlay-content {
-    max-width: 60%;
-    max-height: 60%;
-    position: relative;
-    overflow: hidden; /* Para contener el movimiento */
+    max-width: 40%;
+    max-height: 40%;
 }
 
 .overlay-content img, .overlay-content video {
@@ -345,10 +334,6 @@ main {
     height: 100%;
     object-fit: contain;
     border-radius: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    cursor: move; /* Indica que se puede mover */
 }
 
 .arrow {
@@ -374,7 +359,7 @@ main {
 
 /* Página blog */
 .blog {
-    max-width: 1200px;
+    max-width: 1000px; /* Reducido para encoger las páginas */
     margin: 0 auto;
 }
 
