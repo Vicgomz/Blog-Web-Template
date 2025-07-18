@@ -1,44 +1,48 @@
-# Project Orbis - Fan-Made Hytale Game Website
+# Blog Website Template
 
-Welcome to the official website for **Project Orbis**, a fan-made project inspired by the highly anticipated game *Hytale*. This website serves as a hub for showcasing multimedia content, news, and blog posts related to the Project Orbis project, built with love by Vicgomz and with help from the community.
+A customizable and responsive blog website template built with HTML, CSS, and JavaScript. This project serves as a foundation for creating personal blogs, project updates, or community-driven content sites.
 
 ## Overview
-Project Orbis is a fan-created experience designed to capture the essence of Hytale, featuring custom galleries, news updates, and detailed blog posts. This website provides an interactive platform to explore screenshots, wallpapers, concept art, and videos, all while offering a responsive design for desktop and mobile users.
+This template provides a clean and modern structure for a blog website, featuring a homepage with news highlights, a dedicated blog page, and individual post views. It includes a responsive design optimized for desktop and mobile devices, making it easy to adapt for various blogging needs.
 
 ## Features
-- **Multimedia Gallery**: Browse screenshots, wallpapers, concept art, and videos with a zoomable overlay and pagination.
-- **News Section**: Stay updated with the latest Project Orbis news and articles.
-- **Blog Posts**: Read detailed posts about the project’s progress and community updates.
-- **Responsive Design**: Optimized for both large screens (with arrow navigation) and small screens (arrow-free for simplicity).
-- **User-Friendly Navigation**: Easy-to-use menu and overlay controls.
+- **Homepage**: Displays a list of recent blog posts with previews.
+- **Blog Page**: Organized layout for multiple articles with categorization.
+- **Post Page**: Detailed view for individual blog posts with images and text.
+- **Responsive Design**: Adapts seamlessly to different screen sizes.
+- **Basic Styling**: Customizable CSS for a professional look.
+
+## Usage
+- Open `index.html` to view the homepage and explore the template.
+- Navigate to `blog.html` for the blog archive or `post.html` for a sample post.
+- Customize the HTML, CSS, and JavaScript files to fit your content and style.
 
 ## Development
 This project is built using:
-- **HTML**: For structure and content.
-- **CSS**: For styling and responsiveness.
-- **JavaScript**: For interactivity (e.g., gallery navigation, overlay).
+- **HTML5**: For structure and content.
+- **CSS3**: For styling and responsiveness.
+- **JavaScript**: For basic interactivity.
 
 ### Status
-Project Orbis is currently **in development** and is not yet ready for full use. This is a work in progress, and features may change or be incomplete. Stay tuned for updates!
+This template is currently **in development** and is not yet ready for production use. Features may be incomplete or subject to change. Stay tuned for updates!
 
 ### Contributions
-Project Orbis is a community-driven project! Feel free to:
+Feel free to:
 - Report issues or suggest features via GitHub Issues.
-- Submit pull requests with improvements or new content.
+- Submit pull requests with improvements or new features.
 
 ## Credits
-- **Inspired by**: Hytale (developed by Hypixel Studios).
 - **Created by**: Vicgomz.
-- **Thanks to**: The Hytale and Project Orbis community for their support and creativity.
+- **Thanks to**: The open-source community for inspiration and support.
 
 ## License
-This project is open-source under the [All Rights Reserved](LICENSE). See the `LICENSE` file for details.
+This project is protected under a custom "No Copy, No Commercial Use" license. See the LICENSE file for details.
 
 ## Contact
 For questions or collaboration, reach out via:
-- GitHub Issues: https://github.com/Vicgomz/Project-Orbis-Web/issues
+- GitHub Issues: https://github.com/Vicgomz/blog-template/issues
 - Email: victor.sgomez.personal@gmail.com
 
 ---
 
-Happy exploring, and may your adventures in Project Orbis be legendary!
+Happy blogging, and let’s build something amazing together!
