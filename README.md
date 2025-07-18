@@ -12,11 +12,6 @@ This template provides a clean and modern structure for a blog website, featurin
 - **Responsive Design**: Adapts seamlessly to different screen sizes.
 - **Basic Styling**: Customizable CSS for a professional look.
 
-## Usage
-- Open `index.html` to view the homepage and explore the template.
-- Navigate to `blog.html` for the blog archive or `post.html` for a sample post.
-- Customize the HTML, CSS, and JavaScript files to fit your content and style.
-
 ## Development
 This project is built using:
 - **HTML5**: For structure and content.
@@ -24,7 +19,7 @@ This project is built using:
 - **JavaScript**: For basic interactivity.
 
 ### Status
-This template is currently **in development** and is not yet ready for production use. Features may be incomplete or subject to change. Stay tuned for updates!
+This template is currently **in development** and is not yet ready for production use. Features may be incomplete or subject to change.
 
 ### Contributions
 Feel free to:
@@ -33,7 +28,6 @@ Feel free to:
 
 ## Credits
 - **Created by**: Vicgomz.
-- **Thanks to**: The open-source community for inspiration and support.
 
 ## License
 This project is protected under a custom "No Copy, No Commercial Use" license. See the LICENSE file for details.
